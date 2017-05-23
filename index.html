@@ -16,7 +16,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -25,45 +24,35 @@
 
 <nav>
     <div class="nav-wrapper grey darken-4">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li>
-                <!--<div class="fixed-action-btn click-to-toggle">-->
-                <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-                <!--</div>-->
-            </li>
-            <li><a href="#">Game</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Find</a></li>
-        </ul>
         <a href="#" class="brand-logo center">
-            <img id="hero_logo" src="assets/img/logo.png" alt="Hero Logo">
+            <img id="hero_logo" src="assets/img/hero_logo_white.png" alt="Hero Logo">
         </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">User Login</a></li>
+        <ul id="nav-mobile" class="right">
+            <li><a href="#"><i class="material-icons">info_outline</i></a></li>
+            <li><a href="#"><i class="material-icons">perm_identity</i></a></li>
+        </ul>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">group_work</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a class="btn-floating btn-large waves-effect waves-light red accent-2"><i class="material-icons">stars</i></a></li>
+            <li><a class="btn-floating btn-large waves-effect waves-light light-green accent-4"><i class="material-icons">av_timer</i></a></li>
+            <li><a class="btn-floating btn-large waves-effect waves-light indigo accent-2"><i class="material-icons">room</i></a></li>
+        </ul>
+        <ul id="mobile-demo" class="side-nav">
+            <!--<li><a class="btn-floating btn-large waves-effect waves-light red accent-2"><i class="material-icons">add</i></a></li>-->
+            <!--<li><a class="btn-floating btn-large waves-effect waves-light light-green accent-4"><i class="material-icons">add</i></a></li>-->
+            <!--<li><a class="btn-floating btn-large waves-effect waves-light indigo accent-2"><i class="material-icons">add</i></a></li>-->
+
+            <li><a href="#"><i class="material-icons">stars</i>GameSpot</a></li>
+            <li><a href="#"><i class="material-icons">av_timer</i>ToolSpot</a></li>
+            <li><a href="#"><i class="material-icons">room</i>FindSpot</a></li>
         </ul>
     </div>
 </nav>
 
-
-
-
-<div class="fixed-action-btn click-to-toggle">
-    <a class="btn-floating btn-large red">
-        <i class="material-icons">menu</i>
-    </a>
-    <ul>
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-</div>
-
-
 <footer class="page-footer grey darken-3">
     <div class="footer-copyright grey darken-4">
         <div class="container">
-            © 2014 Copyright Text
+            © 2017 Copyright Footer
             <a class="right" href="#!">More Links</a>
         </div>
     </div>
@@ -74,6 +63,9 @@
 
     <!--Materialize Javascript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!--Custom Javascript-->
+    <script src="assets/javascript/app.js"></script>
 
 </body>
 

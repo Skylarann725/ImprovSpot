@@ -54,7 +54,7 @@
 
     $(function() {
 
-        var msa = [
+        var selection = [
                 { name: "Abilene, TX" },
                 { name: "Akron, OH" },
                 { name: "Albany, GA" },
@@ -110,7 +110,7 @@
         function makeSlotList(list){
             //could choose one random index and then populate with next 18 values instead, but need to account for looping at end
             if(list.length<20){//length chosen based on appearance of spin, can be changed
-                var index = _.random(msa.length-1);
+                var index = _.random(selection.length-1);
                 if(list.length===1){
                     /*
                      This index will be second item in the list, which is our winning number
@@ -119,7 +119,7 @@
                      */
                     random_index = index;
                 }
-                list.push( '<li index='+_.random(msa.length-1)+'>'+msa[index].name+'</li>' );
+                list.push( '<li index='+_.random(selection.length-1)+'>'+selection[index].name+'</li>' );
                 return makeSlotList(list);
             } else {
                 //slot list is complete
@@ -149,7 +149,7 @@
             endNum: 2,//spins backwards through the list. endNum 1 ends on the same value we started on
             onEnd: function(finalElement){
                 //set result
-                $input.val(msa[random_index].name);
+                $input.val(selection[random_index].name);
                 //hide spinner
                 $(this.spinner).hide();
             }

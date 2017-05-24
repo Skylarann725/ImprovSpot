@@ -22,6 +22,7 @@
         overflow: hidden;
     }
     #slot_wrapper {
+        display: inline-block;
         position: relative;
     }
     .jSlots-wrapper {
@@ -39,14 +40,12 @@
 </style>
 
 <div id="slot_wrapper">
-    <input type="text" class="search" disabled>
+    <input type="text" id="random_location" class="search" disabled>
     <ul id="slot">
         <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
         <li>test</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
     </ul>
 </div>
-
-<button type="button" id="random_location">Pick a city</button>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
@@ -157,7 +156,7 @@
         });
 
         //bind random button
-        $('#random_location').on('click', makeSlots);
+        $('#slot_wrapper').on('click', makeSlots);
     });
 
 </script>

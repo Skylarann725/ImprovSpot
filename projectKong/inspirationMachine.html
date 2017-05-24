@@ -156,7 +156,10 @@
         });
 
         //bind random button
-        $('#slot_wrapper').on('click', makeSlots);
+        $('#slot_wrapper').on('click', function() {
+            if ($input.val() === "") makeSlots();
+            else $input.val("");
+        });
     });
 
 </script>

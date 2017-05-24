@@ -7,11 +7,74 @@
     <!-- Reset CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!--Viewport and scale set-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+
+<body class="grey darken-3">
+
+<nav>
+    <div class="nav-wrapper grey darken-4">
+        <a href="#" class="brand-logo center">
+            <img id="hero_logo" src="assets/img/hero_logo_white.png" alt="Hero Logo">
+        </a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="#"><i class="material-icons">info_outline</i></a></li>
+            <li><a href="#"><i class="material-icons">perm_identity</i></a></li>
+        </ul>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">group_work</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a class="btn-floating btn-large waves-effect waves-light red accent-2"><i class="material-icons">stars</i></a></li>
+            <li><a class="btn-floating btn-large waves-effect waves-light light-green accent-4"><i class="material-icons">av_timer</i></a></li>
+            <li><a class="btn-floating btn-large waves-effect waves-light indigo accent-2"><i class="material-icons">room</i></a></li>
+        </ul>
+        <ul id="mobile-demo" class="side-nav">
+            <!--<li><a class="btn-floating btn-large waves-effect waves-light red accent-2"><i class="material-icons">add</i></a></li>-->
+            <!--<li><a class="btn-floating btn-large waves-effect waves-light light-green accent-4"><i class="material-icons">add</i></a></li>-->
+            <!--<li><a class="btn-floating btn-large waves-effect waves-light indigo accent-2"><i class="material-icons">add</i></a></li>-->
+
+            <li><a href="#"><i class="material-icons">stars</i>GameSpot</a></li>
+            <li><a href="#"><i class="material-icons">av_timer</i>ToolSpot</a></li>
+            <li><a href="#"><i class="material-icons">room</i>FindSpot</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+
+<!--INNER BODY GOES BELOW HERE-->
+
+<div class="container grey-text text-lighten-3">
+    <br>
+    <h2 class="center-align">You've landed.</h2>
+    <h4 class="center-align">Welcome to ImprovSpot.</h4>
+    <br>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WiTTbrUAa0Y" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!--INNER BODY GOES ABOVE HERE-->
+
+</main>
+<footer class="page-footer grey darken-3">
+    <div class="footer-copyright grey darken-4">
+        <div class="container">
+            © 2017 - This is a project from the UCF Coding Bootcamp
+
+            <a class="right" href="#https://github.com/Skylarann725/ImprovSpot.git">GitHub Repository</a>
+        </div>
+    </div>
+</footer>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
@@ -19,34 +82,8 @@
     <!--Materialize Javascript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
-</head>
-
-<body>
-
-<nav>
-    <div class="nav-wrapper grey darken-4">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="#">Game</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Find</a></li>
-        </ul>
-        <a href="#" class="brand-logo center">
-            <img id="hero_logo" src="assets/img/logo.png" alt="Hero Logo">
-        </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">User Login</a></li>
-        </ul>
-    </div>
-</nav>
-
-<footer class="page-footer grey darken-3">
-    <div class="footer-copyright grey darken-4">
-        <div class="container">
-            © 2014 Copyright Text
-            <a class="right" href="#!">More Links</a>
-        </div>
-    </div>
-</footer>
+    <!--Custom Javascript-->
+    <script src="assets/javascript/app.js"></script>
 
 </body>
 

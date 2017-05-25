@@ -4,18 +4,18 @@ module.exports = function(sequelize, DataTypes) {
         user_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { 
-              len: [1]
+            validate: {
+                len: [1, 15]
             }
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { 
-              len: [1]
+            validate: {
+                min: 6
             }
         }
-        
+
     });
     return user;
 };

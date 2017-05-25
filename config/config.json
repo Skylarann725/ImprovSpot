@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "",
-    "password": "",
-    "database": "",
-    "host": "",
+    "username": "root",
+    "password": null,
+    "database": "mastergame_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

@@ -1,0 +1,60 @@
+/* Students: Our work lies in the js file. */
+
+body { /* Visual */ background: black;}
+
+.colorChange {
+    -webkit-animation-name: multicolor; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-play-state: running;
+    animation-name: multicolor;
+    animation-duration: 10s;
+    animation-play-state: running;
+    background: red;
+}
+
+@keyframes multicolor {
+    0% {background: green;}
+    50% {background: yellow;}
+    100% {background: red;}
+}
+@-webkit-keyframes multicolor {
+    0% {
+        background: green;
+    }
+    50% {
+        background: yellow;
+    }
+    100% {
+        background: red;
+    }
+}
+
+#display {
+
+    /* Typography */
+    text-align: center;
+    font-size: 120px;
+    font-family: monospace;
+
+    /* Visual */
+    background: white;
+    color: black;
+}
+
+#wrapper {
+
+    /* Positioning */
+    margin: 50px auto 0;
+
+    /* Box-model */
+    width: 400px;
+
+}
+
+#buttons { /* Typography */ text-align: center;}
+
+button {
+    /* Box-model */
+    height: 50px;
+    width: 100px;
+}

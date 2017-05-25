@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    * { box-sizing: border-box; }
+    li, ul { padding: 0; margin:0;
+        text-align: center; }
+    input {
+        margin: 4px 0;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 5px 48px 4px 0px;
+        height: 30px;
+        width: 350px;
+        text-align: center;
+    }
+    #slot li {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 6px 4px 6px 6px;
+        line-height: normal;
+        height: 30px;
+        overflow: hidden;
+    }
+    #slot_wrapper {
+        display: inline-block;
+        position: relative;
+    }
+    .jSlots-wrapper {
+        margin: 4px 0;
+        overflow: hidden; /* to hide the magic */
+        height: 29px; /* whatever the height of your list items are */
+        width: 300px;
+        position: absolute;
+        top: 0px;
+        display: none;
+    }
+    #slot {
+        display: none;
+    }
+</style>
+
+<div id="slot_wrapper">
+    <input type="text" id="random_location" class="search" disabled>
+    <ul id="slot">
+        <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
+        <li>test</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+    </ul>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+<script src="jquery.jSlots.js"></script>
+<script>
+
+    $(function() {
+
+        var selection = [
+                { name: "Abilene, TX" },
+                { name: "Akron, OH" },
+                { name: "Albany, GA" },
+                { name: "Albany, OR" },
+                { name: "Albany-Schenectady-Troy, NY" },
+                { name: "Albuquerque, NM" },
+                { name: "Alexandria, LA" },
+                { name: "Allentown-Bethlehem-Easton, PA-NJ" },
+                { name: "Altoona, PA" },
+                { name: "Amarillo, TX" },
+                { name: "Ames, IA" },
+                { name: "Anchorage, AK" },
+                { name: "Ann Arbor, MI" },
+                { name: "Anniston-Oxford-Jacksonville, AL" },
+                { name: "Appleton, WI" },
+                { name: "Asheville, NC" },
+                { name: "Athens-Clarke County, GA" },
+                { name: "Atlanta-Sandy Springs-Roswell, GA" },
+                { name: "Atlantic City-Hammonton, NJ" },
+                { name: "Auburn-Opelika, AL" },
+                { name: "Augusta-Richmond County, GA-SC" },
+                { name: "Austin-Round Rock, TX" },
+                { name: "Bakersfield, CA" },
+                { name: "Baltimore-Columbia-Towson, MD" },
+                { name: "Bangor, ME" },
+                { name: "Barnstable Town, MA" },
+                { name: "Baton Rouge, LA" },
+                { name: "Battle Creek, MI" },
+                { name: "Bay City, MI" },
+                { name: "Beaumont-Port Arthur, TX" },
+                { name: "Beckley, WV" },
+                { name: "Bellingham, WA" },
+                { name: "Bend-Redmond, OR" },
+                { name: "Billings, MT" },
+                { name: "Binghamton, NY" },
+                { name: "Birmingham-Hoover, AL" },
+                { name: "Bismarck, ND" },
+                { name: "Blacksburg-Christiansburg-Radford, VA" },
+                { name: "Bloomington, IL" },
+                { name: "Bloomington, IN" },
+                { name: "Bloomsburg-Berwick, PA" },
+                { name: "Boise City, ID" },
+                { name: "Boston-Cambridge-Newton, MA-NH" },
+                { name: "Boulder, CO" },
+                { name: "Bowling Green, KY" },
+                { name: "Bremerton-Silverdale, WA" },
+                { name: "Bridgeport-Stamford-Norwalk, CT" }
+            ],
+            $input = $('input'),
+            random_index;
+
+        //make list for slots recursively and call spin when complete
+        function makeSlotList(list){
+            //could choose one random index and then populate with next 18 values instead, but need to account for looping at end
+            if(list.length<20){//length chosen based on appearance of spin, can be changed
+                var index = _.random(selection.length-1);
+                if(list.length===1){
+                    /*
+                     This index will be second item in the list, which is our winning number
+                     Save this for future reference
+                     Instead of saving it, we could get the index attribute from the list item we end on
+                     */
+                    random_index = index;
+                }
+                list.push( '<li index='+_.random(selection.length-1)+'>'+selection[index].name+'</li>' );
+                return makeSlotList(list);
+            } else {
+                //slot list is complete
+                //clear search field
+                $input.val('');
+                //attach list, show jslots, run animation
+                $('#slot').html(list.join('')).parent().show().trigger('spin');
+                return list;
+            }
+        }
+
+        //before spinning, build out list to spin through and insert into the DOM
+        function makeSlots(){
+            //start with current value
+            var list = ['<li>'+$input.val()+'</li>'];
+
+            //call recursive list builder that won't spin slots until it's finished
+            makeSlotList(list);
+        }
+
+        $('#slot').jSlots({
+            number: 1,
+            spinner : '.jSlots-wrapper',
+            spinEvent: 'spin',
+            time: 300,
+            loops: 1,
+            endNum: 2,//spins backwards through the list. endNum 1 ends on the same value we started on
+            onEnd: function(finalElement){
+                //set result
+                $input.val(selection[random_index].name);
+                //hide spinner
+                $(this.spinner).hide();
+            }
+        });
+
+        //bind random button
+        $('#slot_wrapper').on('click', function() {
+            if ($input.val() === "") makeSlots();
+            else $input.val("");
+        });
+    });
+
+</script>

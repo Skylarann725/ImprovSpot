@@ -40,7 +40,7 @@ module.exports = function(app, passport) {
         }
 
     ));
-
+  
     app.get("/loginspot", function(req, res) {
         res.render("loginspot");
     });

@@ -19,6 +19,7 @@ var cheerio = require("cheerio");
 // =============================================================
 var PORT = process.env.PORT || 8080;
 var app = express();
+var env = require('dotenv').load();
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -54,9 +55,4 @@ db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-});
-
-
-app.get('/', function (req, res) {
-    res.render("index");
 });

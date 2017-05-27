@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-    * { box-sizing: border-box; }
-    li, ul { padding: 0; margin:0;
-        text-align: center; }
+    * {
+        box-sizing: border-box;
+    }
+
+    li, ul {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
     input {
         margin: 4px 0;
         font-family: Arial, sans-serif;
         font-size: 16px;
-        padding: 5px 48px 4px 0px;
+        padding: 5px 48px 4px 0;
         height: 30px;
         width: 350px;
         text-align: center;
     }
-    #slot li {
+
+    #slot1 li, #slot2 li, #slot3 li {
         font-family: Arial, sans-serif;
         font-size: 16px;
         padding: 6px 4px 6px 6px;
@@ -21,29 +29,106 @@
         height: 30px;
         overflow: hidden;
     }
-    #slot_wrapper {
+
+    #slot_wrapper1, #slot_wrapper2, #slot_wrapper3 {
         display: inline-block;
         position: relative;
     }
-    .jSlots-wrapper {
+
+    .jSlots-wrapper1, .jSlots-wrapper2, .jSlots-wrapper3 {
         margin: 4px 0;
         overflow: hidden; /* to hide the magic */
         height: 29px; /* whatever the height of your list items are */
         width: 300px;
         position: absolute;
-        top: 0px;
+        top: 0;
         display: none;
     }
-    #slot {
+
+    #slot1, #slot2, #slot3 {
         display: none;
     }
 </style>
 
-<div id="slot_wrapper">
-    <input type="text" id="random_location" class="search" disabled>
-    <ul id="slot">
+<div id="slot_wrapper1">
+    <input type="text" id="random_location1" disabled>
+    <ul id="slot1">
         <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
-        <li>test</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="slot_wrapper2">
+    <input type="text" id="random_location2" disabled>
+    <ul id="slot2">
+        <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="slot_wrapper3">
+    <input type="text" id="random_location3" disabled>
+    <ul id="slot3">
+        <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
+        <li>test</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
     </ul>
 </div>
 
@@ -51,67 +136,55 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 <script src="jquery.jSlots.js"></script>
 <script>
-
-    $(function() {
-
-        var selection = [
-                { name: "Abilene, TX" },
-                { name: "Akron, OH" },
-                { name: "Albany, GA" },
-                { name: "Albany, OR" },
-                { name: "Albany-Schenectady-Troy, NY" },
-                { name: "Albuquerque, NM" },
-                { name: "Alexandria, LA" },
-                { name: "Allentown-Bethlehem-Easton, PA-NJ" },
-                { name: "Altoona, PA" },
-                { name: "Amarillo, TX" },
-                { name: "Ames, IA" },
-                { name: "Anchorage, AK" },
-                { name: "Ann Arbor, MI" },
-                { name: "Anniston-Oxford-Jacksonville, AL" },
-                { name: "Appleton, WI" },
-                { name: "Asheville, NC" },
-                { name: "Athens-Clarke County, GA" },
-                { name: "Atlanta-Sandy Springs-Roswell, GA" },
-                { name: "Atlantic City-Hammonton, NJ" },
-                { name: "Auburn-Opelika, AL" },
-                { name: "Augusta-Richmond County, GA-SC" },
-                { name: "Austin-Round Rock, TX" },
-                { name: "Bakersfield, CA" },
-                { name: "Baltimore-Columbia-Towson, MD" },
-                { name: "Bangor, ME" },
-                { name: "Barnstable Town, MA" },
-                { name: "Baton Rouge, LA" },
-                { name: "Battle Creek, MI" },
-                { name: "Bay City, MI" },
-                { name: "Beaumont-Port Arthur, TX" },
-                { name: "Beckley, WV" },
-                { name: "Bellingham, WA" },
-                { name: "Bend-Redmond, OR" },
-                { name: "Billings, MT" },
-                { name: "Binghamton, NY" },
-                { name: "Birmingham-Hoover, AL" },
-                { name: "Bismarck, ND" },
-                { name: "Blacksburg-Christiansburg-Radford, VA" },
-                { name: "Bloomington, IL" },
-                { name: "Bloomington, IN" },
-                { name: "Bloomsburg-Berwick, PA" },
-                { name: "Boise City, ID" },
-                { name: "Boston-Cambridge-Newton, MA-NH" },
-                { name: "Boulder, CO" },
-                { name: "Bowling Green, KY" },
-                { name: "Bremerton-Silverdale, WA" },
-                { name: "Bridgeport-Stamford-Norwalk, CT" }
+    var spinners =[
+        {
+            slotWrap: $('#slot_wrapper1'),
+            input: $('#random_location1'),
+            selection: [
+                {name: "Kong, TX"},
+                {name: "Le, OH"}
             ],
-            $input = $('input'),
-            random_index;
+            spinEvent: 'spin1',
+            slotSelect: '#slot1',
+            spinWrap: '.jSlots-wrapper1',
+            num: 1
+        },
+        {
+            slotWrap: $('#slot_wrapper2'),
+            input: $('#random_location2'),
+            selection: [
+                {name: "Abilene, TX"},
+                {name: "Akron, OH"}
+            ],
+            spinEvent: 'spin2',
+            slotSelect: '#slot2',
+            spinWrap: '.jSlots-wrapper2',
+            num: 2
 
+        },
+        {
+            slotWrap: $('#slot_wrapper3'),
+            input: $('#random_location3'),
+            selection: [
+                {name: "Ching, TX"},
+                {name: "Chong, OH"}
+            ],
+            spinEvent: 'spin3',
+            slotSelect: '#slot3',
+            spinWrap: '.jSlots-wrapper3',
+            num: 3
+
+        }];
+
+    $(function () {
+
+        var random_index;
         //make list for slots recursively and call spin when complete
-        function makeSlotList(list){
+        function makeSlotList(list, spinner) {
             //could choose one random index and then populate with next 18 values instead, but need to account for looping at end
-            if(list.length<20){//length chosen based on appearance of spin, can be changed
-                var index = _.random(selection.length-1);
-                if(list.length===1){
+            if (list.length < 20) {//length chosen based on appearance of spin, can be changed
+                var index = _.random(spinner.selection.length - 1);
+                if (list.length === 1) {
                     /*
                      This index will be second item in the list, which is our winning number
                      Save this for future reference
@@ -119,46 +192,60 @@
                      */
                     random_index = index;
                 }
-                list.push( '<li index='+_.random(selection.length-1)+'>'+selection[index].name+'</li>' );
-                return makeSlotList(list);
+                list.push('<li index=' + _.random(spinner.selection.length - 1) + '>' + spinner.selection[index].name + '</li>');
+                return makeSlotList(list, spinner);
             } else {
+                console.log('me finish making slot list');
                 //slot list is complete
                 //clear search field
-                $input.val('');
+                spinner.input.val('');
                 //attach list, show jslots, run animation
-                $('#slot').html(list.join('')).parent().show().trigger('spin');
+                $(spinner.slotSelect).html(list.join('')).parent().show().trigger(spinner.spinEvent);
                 return list;
             }
         }
 
         //before spinning, build out list to spin through and insert into the DOM
-        function makeSlots(){
+        function makeSlots(spinner) {
+            console.log('me make slots');
             //start with current value
-            var list = ['<li>'+$input.val()+'</li>'];
-
+            var list = ['<li>' + spinner.input.val() + '</li>'];
             //call recursive list builder that won't spin slots until it's finished
-            makeSlotList(list);
+            makeSlotList(list, spinner);
         }
-
-        $('#slot').jSlots({
-            number: 1,
-            spinner : '.jSlots-wrapper',
-            spinEvent: 'spin',
+$.each(spinners, function (index) {
+    console.log('im being made ' + spinners[index].spinEvent);
+        $(spinners[index].slotSelect).jSlots({
+            number: spinners[index].num,
+            spinner: spinners[index].spinWrap,
+            spinEvent: spinners[index].spinEvent,
             time: 300,
             loops: 1,
             endNum: 2,//spins backwards through the list. endNum 1 ends on the same value we started on
-            onEnd: function(finalElement){
+            onEnd: function (finalElement) {
+                console.log('im spinning ' + spinners[index].spinEvent);
                 //set result
-                $input.val(selection[random_index].name);
+                spinners[index].input.val(spinners[index].selection[random_index].name);
                 //hide spinner
                 $(this.spinner).hide();
             }
         });
-
+    });
         //bind random button
-        $('#slot_wrapper').on('click', function() {
-            if ($input.val() === "") makeSlots();
-            else $input.val("");
+        spinners[0].slotWrap.on('click', function () {
+            console.log('1');
+            if (spinners[0].input.val() === "") makeSlots(spinners[0]);
+            else spinners[0].input.val("");
+        });
+        spinners[1].slotWrap.on('click', function () {
+            console.log('2');
+            if (spinners[1].input.val() === "") makeSlots(spinners[1]);
+            else spinners[1].input.val("");
+        });
+        spinners[2].slotWrap.on('click', function () {
+            console.log('3');
+            if (spinners[2].input.val() === "") makeSlots(spinners[2]);
+            else spinners[2].input.val("");
         });
     });
 

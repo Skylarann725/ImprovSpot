@@ -8,7 +8,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var passportLocal = require("passport-local");
-var expressSession = require("express-session");
+var session = require("express-session");
 var bcrypt= require("bcrypt-nodejs");
 
 // Our scraping tools
@@ -28,6 +28,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// For Passport
+ 
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize()); 
+app.use(passport.session()); // persistent login sessions
+
 
 // Static directory
 app.use(express.static("./public"));

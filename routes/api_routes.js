@@ -11,34 +11,38 @@ module.exports = function(app) {
         res.render("index");
     });
 
-    // app.get("/gamespot", function(req, res) {
-    //     db.improv.findAll({}).then(function(data) {
-    //         var hbsObject = {
-    //             improvdata: data
-    //         };
-    //         console.log(hbsObject);
-    //         res.render("index", hbsObject);
-    //     });
-    // });
+    app.get("/gamespot", function(req, res) {
+        db.improv.findAll({}).then(function(data) {
+            var hbsObject = {
+                game_info: data
+            };
+            console.log(hbsObject);
+            res.render("index", hbsObject);
+        });
+    });
 
-    // app.post("/gamespot", function(req, res) {
-    //     db.improv.create({
-    //         burger_name: req.body.name
-    //     }).then(function() {
-    //         res.redirect('/');
-    //     });
-    // });
+    app.get("/toolspot", function(req, res) {
+        res.render("index");
+    })
 
-    // app.post("/:id", function(req, res) {
-    //     db.burger.update({
-    //         'devoured': true
-    //     }, {
-    //         where: {
-    //             id: req.params.id
-    //         }
-    //     }).then(function() {
-    //         res.redirect("/");
-    //     });
+    app.post("/gamespot", function(req, res) {
+        db.improv.create({
+            burger_name: req.body.name
+        }).then(function() {
+            res.redirect('/');
+        });
+    });
 
-    // });
+    app.post("/:id", function(req, res) {
+        db.burger.update({
+            'devoured': true
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function() {
+            res.redirect("/");
+        });
+
+    });
 };

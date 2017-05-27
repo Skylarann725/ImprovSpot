@@ -27,7 +27,15 @@ module.exports = function(app) {
 
     app.get("/findspot", function(req, res) {
         res.render("findspot");
-    })
+    });
+
+    app.get("/userspot", function(req, res) {
+        res.render("userspot");
+    });
+
+    app.get("/loginspot", function(req, res) {
+        res.render("loginspot");
+    });
 
     app.post("/gamespot", function(req, res) {
         db.improv.create({

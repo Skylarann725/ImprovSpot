@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var passport = require("passport");
 var passportLocal = require("passport-local");
 var session = require("express-session");
-var bcrypt= require("bcrypt-nodejs");
+var bCrypt = require('bcrypt-nodejs');
 
 // Our scraping tools
 var request = require("request");
@@ -48,7 +48,8 @@ app.set("view engine", "handlebars");
 
 // Routes =============================================================
 
-require("./routes/api_routes.js")(app);
+require("./routes/api_routes.js")(app, passport);
+require("./routes/passport.js")(passport);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync().then(function() {

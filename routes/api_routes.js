@@ -6,7 +6,7 @@ var db = require("../models");
 
 // Routes
 // ======
-module.exports = function(app) {
+module.exports = function(app, passport) {
     app.get("/", function(req, res) {
         res.render("index");
     });
@@ -33,6 +33,14 @@ module.exports = function(app) {
         res.render("userspot");
     });
 
+    app.post('/userspot', passport.authenticate('local-signup', {
+            successRedirect: '/',
+
+            failureRedirect: '/userspot'
+        }
+
+    ));
+  
     app.get("/loginspot", function(req, res) {
         res.render("loginspot");
     });

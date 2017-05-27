@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
     var user = sequelize.define("user", {
-        user_name: {
+        username: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {

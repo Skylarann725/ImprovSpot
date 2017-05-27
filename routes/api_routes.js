@@ -9,35 +9,36 @@ var db = require("../models");
 module.exports = function(app) {
     app.get("/", function(req, res) {
         res.render("index");
-    })
-     app.get("/", function(req, res) {
-        db.improv.findAll({}).then(function(data) {
-            var hbsObject = {
-                improvdata: data
-            };
-            console.log(hbsObject);
-            res.render("index", hbsObject);
-        });
     });
 
-    app.post("/", function(req, res) {
-        db.improv.create({
-            burger_name: req.body.name
-        }).then(function() {
-            res.redirect('/');
-        });
-    });
+    // app.get("/gamespot", function(req, res) {
+    //     db.improv.findAll({}).then(function(data) {
+    //         var hbsObject = {
+    //             improvdata: data
+    //         };
+    //         console.log(hbsObject);
+    //         res.render("index", hbsObject);
+    //     });
+    // });
 
-    app.post("/:id", function(req, res) {
-        db.burger.update({
-            'devoured': true
-        }, {
-            where: {
-                id: req.params.id
-            }
-        }).then(function() {
-            res.redirect("/");
-        });
+    // app.post("/gamespot", function(req, res) {
+    //     db.improv.create({
+    //         burger_name: req.body.name
+    //     }).then(function() {
+    //         res.redirect('/');
+    //     });
+    // });
 
-    });
+    // app.post("/:id", function(req, res) {
+    //     db.burger.update({
+    //         'devoured': true
+    //     }, {
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     }).then(function() {
+    //         res.redirect("/");
+    //     });
+
+    // });
 };

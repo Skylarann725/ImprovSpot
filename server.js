@@ -6,6 +6,10 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require("passport");
+var passportLocal = require("passport-local");
+var expressSession = require("express-session");
+var bcrypt= require("bcrypt-nodejs");
 
 // Our scraping tools
 var request = require("request");

@@ -17,12 +17,16 @@ module.exports = function(app) {
                 game_info: data
             };
             console.log(hbsObject);
-            res.render("index", hbsObject);
+            res.render("gamespot", hbsObject);
         });
     });
 
     app.get("/toolspot", function(req, res) {
-        res.render("index");
+        res.render("toolspot");
+    });
+
+    app.get("/findspot", function(req, res) {
+        res.render("findspot");
     })
 
     app.post("/gamespot", function(req, res) {

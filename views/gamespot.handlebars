@@ -1,0 +1,36 @@
+<main class="red lighten-1">
+    <div class="container grey-text text-lighten-3">
+        <br>
+        <div class="center-align"><i class="large material-icons">stars</i></div>
+        <h2 class="center-align">GameSpot.</h2>
+        <h4 class="center-align">Find your perfect short form game to play. Now.</h4>
+        <br>
+        <nav>
+            <div class="nav-wrapper red lighten-3">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+
+        <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion">
+            {{#each game_info}}
+
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">stars</i>
+                        <span>{{this.game_name}}</span>
+                        <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{this.avg_rating}}</span>
+                    </div>
+                    <div class="collapsible-body grey lighten-3">
+                        <div class="chip red lighten-4">{{this.category}}</div>
+                        <p>{{this.instructions}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+</main>

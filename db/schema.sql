@@ -33,5 +33,11 @@ CREATE TABLE `comments` (
 	FOREIGN KEY (game_id) REFERENCES gameinfo(game_id)
 );
 
+CREATE TABLE iMachine(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	Relationship VARCHAR(100) NOT NULL PRIMARY KEY,
+	Thing  VARCHAR(100) NOT NULL,
+	Place VARCHAR(100) NOT NULL
+);
 
 

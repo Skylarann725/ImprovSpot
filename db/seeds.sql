@@ -6,13 +6,8 @@ VALUES
   (4, 'The Oracle', 'One person is the interviewer, and the rest of the players are one \"oracle\" with multiple heads. The interviewer asks questions to the Oracle, and the Oracle provides answers word by word, from each player at a time. You can also have the audience ask the oracle questions about life, love, hardships, etc.', 'Limitations', NULL, 4, NULL, '2017-05-25 18:15:49'),
   (5, 'Five Things', 'One player leaves the room. The audience suggests a sport, activity, or event. Then five things are changed about it based on audience suggestions. For example, if the activity is \"playing tennis\", then the ref might ask \"Instead of a court, they are playing on a\" and the audience will suggest something different. Once five things have been changed, the player comes back in and has to guess the activity and the five new things about it from the pantomime and gibberish from the other two players.', 'Guessing', NULL, 3, NULL, '2017-05-25 19:00:41');
 
+# Values for Inspiration Machine
 
-CREATE TABLE iMachine(
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  Relationship VARCHAR(100) NOT NULL PRIMARY KEY,
-  Thing  VARCHAR(100) NOT NULL,
-  Place VARCHAR(100) NOT NULL
-);
 INSERT INTO iMachine(Relationship) VALUES ('$5 Bill and $100 Bill');
 INSERT INTO iMachine(Relationship) VALUES ('Actor and Director');
 INSERT INTO iMachine(Relationship) VALUES ('Actor and Double');

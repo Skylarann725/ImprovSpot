@@ -1,3 +1,53 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    li, ul {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    input {
+        margin: 4px 0;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 5px 48px 4px 0;
+        height: 30px;
+        width: 350px;
+        text-align: center;
+    }
+
+    #slot1 li, #slot2 li, #slot3 li {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 6px 4px 6px 6px;
+        line-height: normal;
+        height: 30px;
+        overflow: hidden;
+    }
+
+    #slot_wrapper1, #slot_wrapper2, #slot_wrapper3 {
+        display: inline-block;
+        position: relative;
+    }
+
+    .jSlots-wrapper1, .jSlots-wrapper2, .jSlots-wrapper3 {
+        margin: 4px 0;
+        overflow: hidden; /* to hide the magic */
+        height: 29px; /* whatever the height of your list items are */
+        width: 300px;
+        position: absolute;
+        top: 0;
+        display: none;
+    }
+
+    #slot1, #slot2, #slot3 {
+        display: none;
+    }
+</style>
+
 <main class="green lighten-1">
     <div class="container grey-text text-lighten-3">
         <br>
@@ -14,13 +64,92 @@
         </div>
         <div class="row">
             <div class="col s12 m4 center-align">
-                <a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">PLACES</a>
+                <!--<a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">PLACES</a>-->
+                <div id="slot_wrapper1">
+                    <input type="text" id="random_location1" disabled>
+                    <ul id="slot1">
+                        <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </div>
             <div class="col s12 m4 center-align">
-                <a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">THINGS</a>
+                <!--<a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">THINGS</a>-->
+                <div id="slot_wrapper2">
+                    <input type="text" id="random_location2" disabled>
+                    <ul id="slot2">
+                        <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </div>
             <div class="col s12 m4 center-align">
-                <a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">RELATIONSHIPS</a>
+                <!--<a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">RELATIONSHIPS</a>-->
+                <div id="slot_wrapper3">
+                    <input type="text" id="random_location3" disabled>
+                    <ul id="slot3">
+                        <!-- Initial list needs the height it will have when filled for jSlots to run correctly. You could fill with real values instead -->
+                        <li>test</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <br>

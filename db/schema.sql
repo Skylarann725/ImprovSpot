@@ -12,7 +12,7 @@ CREATE TABLE `gameinfo` (
    	max_players TINYINT DEFAULT NULL,
   	date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (game_id)
-};
+);
 
 CREATE TABLE `userinfo` (
 	user_id INTEGER AUTO_INCREMENT NOT NULL UNIQUE,

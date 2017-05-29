@@ -1,24 +1,40 @@
 /* Students: Our work lies in the js file. */
 
-body { /* Visual */ background: black;}
+body { /* Visual */
+    background: black;
+}
 
 .colorChange {
     -webkit-animation-name: multicolor; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-play-state: running;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-play-state: paused;
+    -webkit-animation-fill-mode: forwards;
     animation-name: multicolor;
     animation-duration: 10s;
-    animation-play-state: running;
-    background: red;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
 }
 
 @keyframes multicolor {
-    0% {background: green;}
-    50% {background: yellow;}
-    100% {background: red;}
+    0% {
+        background: dimgray;
+    }
+    1% {
+        background: green;
+    }
+    50% {
+        background: yellow;
+    }
+    100% {
+        background: red;
+    }
 }
+
 @-webkit-keyframes multicolor {
     0% {
+        background: dimgray;
+    }
+    1% {
         background: green;
     }
     50% {
@@ -33,28 +49,36 @@ body { /* Visual */ background: black;}
 
     /* Typography */
     text-align: center;
-    font-size: 120px;
+    font-size: 20vw;
     font-family: monospace;
 
     /* Visual */
+
     background: white;
     color: black;
+    overflow: auto;
+    padding: auto;
 }
 
 #wrapper {
 
     /* Positioning */
-    margin: 50px auto 0;
+    margin: 50px 10%;
 
     /* Box-model */
-    width: 400px;
+
+    padding: 10%;
+    overflow: auto;
 
 }
 
-#buttons { /* Typography */ text-align: center;}
+#buttons { /* Typography */
+    text-align: center;
+}
 
 button {
     /* Box-model */
-    height: 50px;
-    width: 100px;
+    height: 30px;
+    width: 80px;
+    margin: 2px 10px;
 }

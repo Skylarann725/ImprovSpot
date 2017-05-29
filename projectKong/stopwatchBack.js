@@ -1,54 +1,45 @@
-// STOPWATCH ACTIVITY (SOLUTION)
-// =============================
+var $start = $("#start"),
+    $stop = $("#stop"),
+    $display = $("#display"),
+    $colorChange = $(".colorChange"),
+    playState = "-webkit-animation-play-state",
+    intervalId,
+    started = false;
 
 // This code will run as soon as the page loads
 window.onload = function () {
-    $("#stop").on("click", stopwatch.stop);
-    $("#reset").on("click", stopwatch.reset);
-    $("#start").on("click", stopwatch.start);
-};
+    $start.on("click", stopwatch.start);
 
-//  Variable that will hold our setInterval that runs the stopwatch
-var intervalId,
-    started = false,
-    start = 0;
+    $stop.on("click", function () {
+        if ($stop.text() === 'Stop') stopwatch.stop();
+        else stopwatch.reset();
+    });
+};
 
 // Our stopwatch object
 var stopwatch = {
-
     time: 0,
-    lap: 1,
-
-    reset: function () {
-
-        stopwatch.time = 0;
-        stopwatch.lap = 1;
-
-        // DONE: Change the "display" div to "00:00."
-        $("#display").html("00:00");
-
-        // DONE: Empty the "laps" div.
-        $("#laps").html("");
-    },
     start: function () {
-
-        if (start === 0) {
-            $("body").addClass("colorChange");
-            start = 1;
-        }
+        $stop.text('Stop');
         if (started === false) {
             started = true;
-            console.log(started);
             // DONE: Use setInterval to start the count here.
             intervalId = setInterval(stopwatch.count, 1000);
         }
-        stopwatch.colorTrans();
+        $colorChange.css(playState, 'running');
     },
     stop: function () {
+        $stop.text('Reset');
         started = false;
         // DONE: Use clearInterval to stop the count here.
         clearInterval(intervalId);
-        stopwatch.colorTrans();
+        $colorChange.css(playState, 'paused');
+    },
+    reset: function () {
+        stopwatch.time = 0;
+        // DONE: Change the "display" div to "00:00."
+        $display.html("00:00");
+        this.colorReset();
     },
     count: function () {
 
@@ -59,7 +50,7 @@ var stopwatch = {
         //       and save the result in a variable.
         var converted = stopwatch.timeConverter(stopwatch.time);
         // DONE: Use the variable we just created to show the converted time in the "display" div.
-        $("#display").html(converted);
+        $display.html(converted);
     },
     timeConverter: function (t) {
 
@@ -79,14 +70,13 @@ var stopwatch = {
 
         return minutes + ":" + seconds;
     },
-    colorTrans: function () {
-        console.log($("body").css("animation-play-state"));
-        if ($("body").css("animation-play-state") == "running") {
-            console.log("is running");
-            $("body").css("animation-play-state", "pause");
-            $("body").css("-webkit-animation-play-state", "pause");
-        }else{
-            $("body").css("animation-play-state", "running");
-        }
+    colorReset: function () {
+        $colorChange.css('-webkit-animation', 'none');
+        $colorChange.css('animation', 'none');
+        setTimeout(function () {
+            $colorChange.css('-webkit-animation', '');
+            $colorChange.css('animation', '');
+        }, 10);
     }
+
 };

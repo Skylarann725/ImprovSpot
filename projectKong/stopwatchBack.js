@@ -1,11 +1,18 @@
 // STOPWATCH ACTIVITY (SOLUTION)
 // =============================
 
+var $start = $("#start"),
+    $stop = $("#stop"),
+    $display = $("#display");
+
+
 // This code will run as soon as the page loads
 window.onload = function () {
-    $("#stop").on("click", stopwatch.stop);
-    $("#reset").on("click", stopwatch.reset);
-    $("#start").on("click", stopwatch.start);
+    $stop.on("click", function() {
+        if($stop.text() === 'Stop') stopwatch.stop();
+        else stopwatch.reset();
+    });
+    $start.on("click", stopwatch.start);
 };
 
 //  Variable that will hold our setInterval that runs the stopwatch
@@ -25,13 +32,13 @@ var stopwatch = {
         stopwatch.lap = 1;
 
         // DONE: Change the "display" div to "00:00."
-        $("#display").html("00:00");
+        $display.html("00:00");
 
         // DONE: Empty the "laps" div.
         $("#laps").html("");
     },
     start: function () {
-
+        $stop.text('Stop');
         if (start === 0) {
             $("body").addClass("colorChange");
             start = 1;
@@ -45,6 +52,7 @@ var stopwatch = {
         stopwatch.colorTrans();
     },
     stop: function () {
+        $stop.text('Reset');
         started = false;
         // DONE: Use clearInterval to stop the count here.
         clearInterval(intervalId);
@@ -59,7 +67,7 @@ var stopwatch = {
         //       and save the result in a variable.
         var converted = stopwatch.timeConverter(stopwatch.time);
         // DONE: Use the variable we just created to show the converted time in the "display" div.
-        $("#display").html(converted);
+        $display.html(converted);
     },
     timeConverter: function (t) {
 

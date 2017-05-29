@@ -50,90 +50,44 @@
 
 <!--INNER BODY GOES BELOW HERE-->
 
-<main class="green lighten-1">
+<main class="red lighten-1">
     <div class="container grey-text text-lighten-3">
         <br>
-        <div class="center-align"><i class="large material-icons">av_timer</i></div>
-        <h2 class="center-align">ToolSpot.</h2>
-        <h4 class="center-align">Helpful tools to get your game going.</h4>
+        <div class="center-align"><i class="large material-icons">stars</i></div>
+        <h2 class="center-align">GameSpot.</h2>
+        <h4 class="center-align">Find your perfect short form game to play. Now.</h4>
         <br>
-    </div>
-    <div class="container green lighten-3 grey-text text-lighten-3">
-        <div class="row">
-            <br>
-            <h5 class="center-align grey-text text-darken-3">INSPIRATION MACHINE</h5>
-            <h6 class="center-align grey-text text-darken-3">Click/tap on a column to get an idea for the scene.</h6>
-        </div>
-        <div class="row">
-            <div class="col s12 m4 center-align">
-                <a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">PLACES</a>
+        <nav>
+            <div class="nav-wrapper red lighten-3">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
             </div>
-            <div class="col s12 m4 center-align">
-                <a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">THINGS</a>
-            </div>
-            <div class="col s12 m4 center-align">
-                <a class="waves-effect waves-light btn-large green lighten-4 grey-text text-darken-3">RELATIONSHIPS</a>
-            </div>
-        </div>
-        <br>
-    </div>
-    <br>
-    <div class="container green lighten-3 grey-text text-lighten-3">
-        <div class="row">
-            <br>
-            <h5 class="center-align grey-text text-darken-3">TIMER</h5>
-        </div>
-        <div class="row">
-            <div class="col s6 center-align">
-                <a class="waves-effect waves-light btn-large green accent-3 grey-text text-darken-3">Start</a>
-            </div>
-            <div class="col s6 center-align">
-                <a class="waves-effect waves-light btn-large red accent-2 grey-text text-darken-3">Stop</a>
-            </div>
-        </div>
-        <div class="container black">
-            <h1 class="center-align">00:00</h1>
-        </div>
-        <br>
-    </div>
-    <br>
+        </nav>
+
+        <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion">
+            {{#each game_info}}
+
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">stars</i>
+                    <span>{{this.game_name}}</span>
+                    <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{this.avg_rating}}</span>
+                </div>
+                <div class="collapsible-body grey lighten-3">
+                    <span class="chip red lighten-4">{{this.category}}</span>
+                    <span class="chip green lighten-4">{{this.min_players}} - {{this.max_players}} players</span>
+                    <p>{{this.instructions}}</p>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
 </main>
 
-    <!--<div id="list-container" class="grey-text text-darken-4">-->
-        <!--<ul class="collection">-->
-            <!--<li class="collection-item avatar">-->
-                <!--<i class="material-icons circle red lighten-1">stars</i>-->
-                <!--<span class="title">Title</span>-->
-                <!--<h6>First Line</h6>-->
-                <!--<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>-->
-            <!--</li>-->
-            <!--<li class="collection-item avatar">-->
-                <!--<i class="material-icons circle red lighten-1">folder</i>-->
-                <!--<span class="title">Title</span>-->
-                <!--<p>First Line <br>-->
-                    <!--Second Line-->
-                <!--</p>-->
-                <!--<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>-->
-            <!--</li>-->
-            <!--<li class="collection-item avatar">-->
-                <!--<i class="material-icons circle green">insert_chart</i>-->
-                <!--<span class="title">Title</span>-->
-                <!--<p>First Line <br>-->
-                    <!--Second Line-->
-                <!--</p>-->
-                <!--<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>-->
-            <!--</li>-->
-            <!--<li class="collection-item avatar">-->
-                <!--<i class="material-icons circle red">play_arrow</i>-->
-                <!--<span class="title">Title</span>-->
-                <!--<p>First Line <br>-->
-                    <!--Second Line-->
-                <!--</p>-->
-                <!--<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</div>-->
 
 <!--INNER BODY GOES ABOVE HERE-->
 

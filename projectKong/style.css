@@ -17,6 +17,9 @@ body { /* Visual */
 
 @keyframes multicolor {
     0% {
+        background: dimgray;
+    }
+    1% {
         background: green;
     }
     50% {
@@ -29,6 +32,9 @@ body { /* Visual */
 
 @-webkit-keyframes multicolor {
     0% {
+        background: dimgray;
+    }
+    1% {
         background: green;
     }
     50% {
@@ -61,7 +67,6 @@ body { /* Visual */
 
     /* Box-model */
 
-    background: gray;
     padding: 10%;
     overflow: auto;
 

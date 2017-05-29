@@ -40,7 +40,6 @@ var stopwatch = {
     start: function () {
         $stop.text('Stop');
         if (start === 0) {
-            $("body").addClass("colorChange");
             start = 1;
         }
         if (started === false) {
@@ -88,8 +87,7 @@ var stopwatch = {
         return minutes + ":" + seconds;
     },
     colorTrans: function () {
-        console.log($("body").css("animation-play-state"));
-        if ($("body").css("animation-play-state") == "running") {
+        if ($("body").css("animation-play-state") === "running") {
             console.log("is running");
             $("body").css("animation-play-state", "pause");
             $("body").css("-webkit-animation-play-state", "pause");

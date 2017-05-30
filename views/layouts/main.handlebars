@@ -32,7 +32,7 @@
         </div>
         <ul id="nav-mobile" class="right">
             <li><a href="/userspot"><i class="material-icons">info_outline</i></a></li>
-            <li><a href="/loginspot"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="#loginmodal"><i class="material-icons">perm_identity</i></a></li>
         </ul>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">group_work</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -67,6 +67,20 @@
         </div>
     </div>
 </footer>
+
+<!-- Login Modal -->
+<div id="loginmodal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Login to ImprovSpot or <a href="/loginspot">create a new account</a></h4>
+        <form id="login" name="login" method="post" action="/login">
+            <input placeholder="Username" class="text" name="username" type="text" />
+            <input placeholder="Password" name="password" type="password" />
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-indigo btn-flat">Login</a>
+    </div>
+</div>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>

@@ -21,11 +21,13 @@
             {{#each game_info}}
 
                 <li>
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
                     <div class="collapsible-header">
                         <i class="material-icons">stars</i>
                         <span>{{this.game_name}}</span>
                         <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{this.avg_rating}}</span>
                     </div>
+                    </form>
                     <div class="collapsible-body grey lighten-3">
                         <span class="chip red lighten-4">{{this.category}}</span>
                         <span class="chip green lighten-4">{{this.min_players}} - {{this.max_players}} players</span>

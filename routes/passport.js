@@ -1,6 +1,22 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
+var passport = require("passport");
 
+//serialize
+passport.serializeUser(function(user, done) {
+    done(null, user.user_id); 
+});
+
+// deserialize user 
+passport.deserializeUser(function(id, done) { 
+    User.findById(user_id).then(function(user) { 
+        if (user) { 
+            done(null, user.get()); 
+        } else {
+            done(user.errors, null); 
+        } 
+    }); 
+});
 
 module.exports = function(passport, user) {
 

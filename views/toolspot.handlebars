@@ -46,6 +46,51 @@
     #slot1, #slot2, #slot3 {
         display: none;
     }
+
+    .colorChange {
+        -webkit-animation-name: multicolor; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 10s;
+        -webkit-animation-play-state: paused;
+        -webkit-animation-fill-mode: forwards;
+        animation-name: multicolor;
+        animation-duration: 10s;
+        animation-play-state: paused;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes multicolor {
+        0% {
+            background: #a5d6a7;
+        }
+        1% {
+            background: #a5d6a7;
+        }
+        50% {
+            background: #ffcc80;
+        }
+        100% {
+            background: #ef5350;
+        }
+    }
+
+    @-webkit-keyframes multicolor {
+        0% {
+            background: #a5d6a7;
+        }
+        1% {
+            background: #a5d6a7;
+        }
+        50% {
+            background: #ffcc80;
+        }
+        100% {
+            background: #ef5350;
+        }
+    }
+
+    #display {
+        font-size: 20vw;
+    }
 </style>
 
 <main class="green lighten-1">
@@ -155,21 +200,21 @@
         <br>
     </div>
     <br>
-    <div class="container green lighten-3 grey-text text-lighten-3">
+    <div id="wrapper" class="colorChange container green lighten-3 grey-text text-lighten-3">
         <div class="row">
             <br>
             <h5 class="center-align grey-text text-darken-3">TIMER</h5>
         </div>
-        <div class="row">
+        <div id="buttons" class="row">
             <div class="col s6 center-align">
-                <a class="waves-effect waves-light btn-large green accent-3 grey-text text-darken-3">Start</a>
+                <a id="start" class="waves-effect waves-light btn-large green accent-3 grey-text text-darken-3">Start</a>
             </div>
             <div class="col s6 center-align">
-                <a class="waves-effect waves-light btn-large red accent-2 grey-text text-darken-3">Stop</a>
+                <a id="stop" class="waves-effect waves-light btn-large red accent-2 grey-text text-darken-3">Stop</a>
             </div>
         </div>
         <div class="container black">
-            <h1 class="center-align">00:00</h1>
+            <h1 id="display" class="center-align">00:00</h1>
         </div>
         <br>
     </div>

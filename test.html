@@ -50,7 +50,46 @@
 
 <!--INNER BODY GOES BELOW HERE-->
 
-{{{ body }}}
+<main class="red lighten-1">
+    <div class="container grey-text text-lighten-3">
+        <br>
+        <div class="center-align"><i class="large material-icons">stars</i></div>
+        <h2 class="center-align">GameSpot.</h2>
+        <h4 class="center-align">Find your perfect short form game to play. Now.</h4>
+        <br>
+        <nav>
+            <div class="nav-wrapper red lighten-3">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+
+        <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion">
+
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">stars</i>
+                    <span>{{Game Name}}</span>
+                    <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{Star Rating}}</span>
+                </div>
+                <div class="collapsible-body grey lighten-3">
+                    <span class="chip red lighten-4">{{Category}}</span>
+                    <span class="chip green lighten-4">{{2}} - {{4}} players</span>
+                    <p>{{instructions}}</p>
+                    <div class="reviewDiv">
+                        <a href="#">Ratings & Reviews</a>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+</main>
 
 <!--INNER BODY GOES ABOVE HERE-->
 
@@ -58,8 +97,8 @@
     <div class="footer-copyright grey darken-4">
         <div class="container">
             <div class="center-align">
-            © 2017 - This is a project of the UCF Coding Bootcamp |
-            <a href="#https://github.com/Skylarann725/ImprovSpot.git"> GitHub Repository</a><br>
+                © 2017 - This is a project of the UCF Coding Bootcamp |
+                <a href="#https://github.com/Skylarann725/ImprovSpot.git"> GitHub Repository</a><br>
                 <a href="https://github.com/Skylarann725">Skylar Siagel</a> |
                 <a href="https://github.com/bear9151">Barrett Allen</a> |
                 <a href="https://github.com/Kongle989">Kong Le</a>
@@ -68,19 +107,19 @@
     </div>
 </footer>
 
-<!-- Login Modal -->
-<div id="loginmodal" class="modal bottom-sheet">
-    <div class="modal-content">
-        <h4>Login to ImprovSpot or <a href="/loginspot">create a new account</a></h4>
-        <form id="login" name="login" method="post" action="/login">
-            <input placeholder="Username" class="text" name="username" type="text" />
-            <input placeholder="Password" name="password" type="password" />
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-indigo btn-flat">Login</a>
-    </div>
-</div>
+        <!-- Login Modal -->
+        <div id="loginmodal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Login to ImprovSpot or <a href="/loginspot">create a new account</a></h4>
+                <form id="login" name="login" method="post" action="/login">
+                    <input placeholder="Username" class="text" name="username" type="text" />
+                    <input placeholder="Password" name="password" type="password" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-indigo btn-flat">Login</a>
+            </div>
+        </div>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
@@ -102,6 +141,13 @@
 
 <!--Custom Javascript-->
 <script src="assets/javascript/app.js"></script>
+
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+</script>
 
 </body>
 

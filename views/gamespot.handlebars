@@ -9,7 +9,7 @@
             <div class="nav-wrapper red lighten-3">
                 <form>
                     <div class="input-field">
-                        <input id="search" type="search" required>
+                        <input id="search" type="search" onkeyup="myFunction()" placeholder="Search for games.." required>
                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>
@@ -18,18 +18,22 @@
         </nav>
 
         <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion">
-            {{#each game_info}}
-
+            {{#each improvs}}
                 <li>
                     <div class="collapsible-header">
+                    <form action="/gamespot/{{this.game_id}}?_method=PUT" method="POST">
                         <i class="material-icons">stars</i>
                         <span>{{this.game_name}}</span>
                         <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{this.avg_rating}}</span>
+                    </form>
                     </div>
+                    
                     <div class="collapsible-body grey lighten-3">
+                    <form action="/gamespot/{{this.game_id}}?_method=PUT" method="POST">
                         <span class="chip red lighten-4">{{this.category}}</span>
                         <span class="chip green lighten-4">{{this.min_players}} - {{this.max_players}} players</span>
                         <p>{{this.instructions}}</p>
+                        </form>
                     </div>
                 </li>
             {{/each}}

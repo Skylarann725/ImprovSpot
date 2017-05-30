@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
     app.get("/gamespot", function(req, res) {
         db.improv.findAll({}).then(function(data) {
             var hbsObject = {
-                game_info: data
+                improvs: data
             };
             console.log(hbsObject);
             res.render("gamespot", hbsObject);

@@ -18,20 +18,22 @@
         </nav>
 
         <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion">
-            {{#each game_info}}
-
+            {{#each improvs}}
                 <li>
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
                     <div class="collapsible-header">
+                    <form action="/gamespot/{{this.game_id}}?_method=PUT" method="POST">
                         <i class="material-icons">stars</i>
                         <span>{{this.game_name}}</span>
                         <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{this.avg_rating}}</span>
-                    </div>
                     </form>
+                    </div>
+                    
                     <div class="collapsible-body grey lighten-3">
+                    <form action="/gamespot/{{this.game_id}}?_method=PUT" method="POST">
                         <span class="chip red lighten-4">{{this.category}}</span>
                         <span class="chip green lighten-4">{{this.min_players}} - {{this.max_players}} players</span>
                         <p>{{this.instructions}}</p>
+                        </form>
                     </div>
                 </li>
             {{/each}}

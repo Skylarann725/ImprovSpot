@@ -33,36 +33,36 @@ module.exports = function(app, passport) {
         res.render("userspot");
     });
 
-    app.post('/userspot', passport.authenticate('local-signup', {
-            successRedirect: '/',
-
-            failureRedirect: '/userspot'
-        }
-
-    ));
-  
     app.get("/loginspot", function(req, res) {
         res.render("loginspot");
     });
 
-    app.post("/gamespot", function(req, res) {
-        db.improv.create({
-            burger_name: req.body.name
-        }).then(function() {
-            res.redirect('/');
-        });
-    });
+    app.post("/loginspot", passport.authenticate('local-signup', {
+            successRedirect: "/",
 
-    app.post("/:id", function(req, res) {
-        db.burger.update({
-            'devoured': true
-        }, {
-            where: {
-                id: req.params.id
-            }
-        }).then(function() {
-            res.redirect("/");
-        });
+            failureRedirect: "/loginspot"
+        }
 
-    });
+    ));
+
+    // app.post("/gamespot", function(req, res) {
+    //     db.improv.create({
+    //         burger_name: req.body.name
+    //     }).then(function() {
+    //         res.redirect('/');
+    //     });
+    // });
+
+    // app.post("/:id", function(req, res) {
+    //     db.burger.update({
+    //         'devoured': true
+    //     }, {
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     }).then(function() {
+    //         res.redirect("/");
+    //     });
+
+    // });
 };

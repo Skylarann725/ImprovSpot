@@ -5,7 +5,7 @@
     <title>ImprovSpot</title>
 
     <!-- Reset CSS -->
-    <link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!--Viewport and scale set-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,15 +24,15 @@
 <body>
 
 <nav>
-    <div class="nav-wrapper grey darken-4">
+    <div class="nav-wrapper grey darken-4 z-depth-2">
         <div>
-            <a href="#" class="brand-logo center">
+            <a href="/" class="brand-logo center">
                 <img id="hero_logo" src="assets/img/hero_logo_white.png" alt="Hero Logo">
             </a>
         </div>
         <ul id="nav-mobile" class="right">
-            <li><a href="#"><i class="material-icons">info_outline</i></a></li>
-            <li><a href="#"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="/userspot"><i class="material-icons">info_outline</i></a></li>
+            <li><a href="#loginmodal"><i class="material-icons">perm_identity</i></a></li>
         </ul>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">group_work</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -41,9 +41,9 @@
             <li><a href="/findspot" class="btn-floating btn-large waves-effect waves-light indigo lighten-1"><i class="material-icons">room</i></a></li>
         </ul>
         <ul id="mobile-demo" class="side-nav">
-            <li><a href="/gamespot"><i class="material-icons">stars</i>GameSpot</a></li>
-            <li><a href="/toolspot"><i class="material-icons">av_timer</i>ToolSpot</a></li>
-            <li><a href="/findspot"><i class="material-icons">room</i>FindSpot</a></li>
+            <li><a class="red-text text-lighten-1" href="/gamespot"><i class="material-icons">stars</i>GameSpot</a></li>
+            <li><a class="green-text text-lighten-1" href="/toolspot"><i class="material-icons">av_timer</i>ToolSpot</a></li>
+            <li><a class="indigo-text text-lighten-1" href="/findspot"><i class="material-icons">room</i>FindSpot</a></li>
         </ul>
     </div>
 </nav>
@@ -70,44 +70,84 @@
         </nav>
 
         <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion">
-            {{#each game_info}}
 
             <li>
                 <div class="collapsible-header">
                     <i class="material-icons">stars</i>
-                    <span>{{this.game_name}}</span>
-                    <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{this.avg_rating}}</span>
+                    <span>{{Game Name}}</span>
+                    <span class="right"><i class="material-icons yellow-text text-accent-4">star</i>{{Star Rating}}</span>
                 </div>
                 <div class="collapsible-body grey lighten-3">
-                    <span class="chip red lighten-4">{{this.category}}</span>
-                    <span class="chip green lighten-4">{{this.min_players}} - {{this.max_players}} players</span>
-                    <p>{{this.instructions}}</p>
+                    <span class="chip red lighten-4">{{Category}}</span>
+                    <span class="chip green lighten-4">{{2}} - {{4}} players</span>
+                    <p>{{instructions}}</p>
+                    <div class="reviewDiv">
+                        <a href="#">Ratings & Reviews</a>
+                    </div>
                 </div>
             </li>
-            {{/each}}
-        </ul>
-</main>
 
+        </ul>
+
+</main>
 
 <!--INNER BODY GOES ABOVE HERE-->
 
 <footer class="page-footer grey darken-3">
     <div class="footer-copyright grey darken-4">
         <div class="container">
-            © 2017 - This is a project from the UCF Coding Bootcamp
-            <a class="right" href="#https://github.com/Skylarann725/ImprovSpot.git">GitHub Repository</a>
+            <div class="center-align">
+                © 2017 - This is a project of the UCF Coding Bootcamp |
+                <a href="#https://github.com/Skylarann725/ImprovSpot.git"> GitHub Repository</a><br>
+                <a href="https://github.com/Skylarann725">Skylar Siagel</a> |
+                <a href="https://github.com/bear9151">Barrett Allen</a> |
+                <a href="https://github.com/Kongle989">Kong Le</a>
+            </div>
         </div>
     </div>
 </footer>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <!-- Login Modal -->
+        <div id="loginmodal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Login to ImprovSpot or <a href="/loginspot">create a new account</a></h4>
+                <form id="login" name="login" method="post" action="/login">
+                    <input placeholder="Username" class="text" name="username" type="text" />
+                    <input placeholder="Password" name="password" type="password" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-indigo btn-flat">Login</a>
+            </div>
+        </div>
 
-    <!--Materialize Javascript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-    <!--Custom Javascript-->
-    <script src="public/assets/javascript/app.js"></script>
+<!--Materialize Javascript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+<!--Underscore for toolspot iMachine-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
+<!--jQuery.jSlots for toolspot iMachine-->
+<script src="assets/javascript/jquery.jSlots.js"></script>
+
+<!--Custom spinners js for iMachine-->
+<script src="assets/javascript/spinners.js"></script>
+
+<!--Custom spinners js for stopwatch-->
+<script src="assets/javascript/stopwatchBack.js"></script>
+
+<!--Custom Javascript-->
+<script src="assets/javascript/app.js"></script>
+
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+</script>
 
 </body>
 

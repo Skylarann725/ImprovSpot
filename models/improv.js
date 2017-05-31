@@ -6,12 +6,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: { 
               len: [1]
-            }
+            },
+            unique: true
         },
         instructions: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: false
+            type: DataTypes.TEXT,
+            allowNull: false
         },
         category: {
             type: DataTypes.STRING,
@@ -23,7 +23,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         min_players: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 2
         },
         max_players: {
             type: DataTypes.BOOLEAN,

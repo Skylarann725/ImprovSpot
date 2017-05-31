@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [1, 15]
-            }
+            },
+            unique: true
         },
 
         firstname: {

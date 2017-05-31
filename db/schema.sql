@@ -2,8 +2,8 @@ CREATE DATABASE mastergame_db;
 
 USE `mastergame_db`;
 
-CREATE TABLE `gameinfo` (
-    game_id INTEGER AUTO_INCREMENT NOT NULL,
+CREATE TABLE `improvs` (
+    id INTEGER AUTO_INCREMENT NOT NULL,
     game_name VARCHAR(255) NOT NULL,
     instructions TEXT NOT NULL,
     category VARCHAR(255) NOT NULL,

@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
             }
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             var $ = cheerio.load(html);
-            // Now, we grab every h2 within an article tag, and do the following:
+            // Now, we grab every line within the tag, and do the following:
             $(".nav-stacked li").each(function(i, element) {
 
                 // Saves an empty result object
@@ -37,10 +37,7 @@ module.exports = function(app, passport) {
                         result.info = $(this).find(".lead").next().text();
                         result.tag = $(this).find("p a .label").text();
 
-
                         console.log(result);
-                        // Using our Article model, creates a new entry
-                        // This effectively passes the result object to the entry (and the title and link)
 
                         db.improv.create({
                             game_name: result.title,

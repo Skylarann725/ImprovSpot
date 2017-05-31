@@ -17,7 +17,7 @@ var cheerio = require("cheerio");
 
 // Sets up the Express App
 // =============================================================
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 var app = express();
 var env = require('dotenv').load();
 

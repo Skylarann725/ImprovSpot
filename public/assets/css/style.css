@@ -16,6 +16,10 @@ h2 {
     margin-top: 0;
 }
 
+.video-container {
+    margin-bottom: 30px;
+}
+
 /*!* form label color *!*/
 /*.input-field label {*/
     /*color: red;*/

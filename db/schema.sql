@@ -14,8 +14,8 @@ CREATE TABLE `improvs` (
     PRIMARY KEY (game_id)
 );
 
-CREATE TABLE `userinfo` (
-	user_id INTEGER AUTO_INCREMENT NOT NULL UNIQUE,
+CREATE TABLE `users` (
+	id INTEGER AUTO_INCREMENT NOT NULL UNIQUE,
 	username TEXT NOT NULL,
 	firstname VARCHAR(20) NOT NULL,
 	lastname VARCHAR(20) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE `userinfo` (
 );
 
 CREATE TABLE `comments` (
-	comment_id INTEGER AUTO_INCREMENT NOT NULL,
+	id INTEGER AUTO_INCREMENT NOT NULL,
 	comment TEXT NULL,
 	rating INTEGER NULL,
 	date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -35,18 +35,13 @@ CREATE TABLE `comments` (
 	FOREIGN KEY (game_id) REFERENCES gameinfo(game_id)
 );
 
-CREATE TABLE `iMachine`(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	Relationship VARCHAR(100) NOT NULL,
-	Thing VARCHAR(100) NOT NULL,
-	Place VARCHAR(100) NOT NULL
-);
-
 CREATE TABLE `locations`(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(255) NOT NULL,
 	group_level VARCHAR(255) NOT NULL,
 	improv_type VARCHAR(255) NOT NULL,
 	location VARCHAR(255) NOT NULL,
-	date_established VARCHAR(255) NOT NULL
+	date_established VARCHAR(255) NOT NULL,
+	nospacename VARCHAR(255) NOT NULL,
+	urlcity VARCHAR(255) NOT NULL
 );

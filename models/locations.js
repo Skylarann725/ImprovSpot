@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         location: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         date_established: {
             type: DataTypes.DATE,

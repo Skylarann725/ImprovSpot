@@ -85,7 +85,12 @@ app.get("/toolspot", function(req, res) {
 });
 
 app.get("/findspot", function(req, res) {
-    res.render("findspot");
+    db.locations.findAll({}).then(function(data) {
+        var hbsObject = {
+            locations: data
+        };
+    })
+    res.render("findspot", hbsObject);
 });
 
 app.get("/userspot", function(req, res) {

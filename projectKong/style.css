@@ -10,7 +10,7 @@ body { /* Visual */
     -webkit-animation-play-state: paused;
     -webkit-animation-fill-mode: forwards;
     animation-name: multicolor;
-    animation-duration: 10s;
+    animation-duration: 360s;
     animation-play-state: paused;
     animation-fill-mode: forwards;
 }

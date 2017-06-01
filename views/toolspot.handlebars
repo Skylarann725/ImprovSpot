@@ -3,27 +3,11 @@
         box-sizing: border-box;
     }
 
-    li, ul {
-        padding: 0;
-        margin: 0;
-        text-align: center;
-    }
-
     input {
-        margin: 4px 0;
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        padding: 5px 48px 4px 0;
-        height: 30px;
-        width: 350px;
         text-align: center;
     }
 
     #slot1 li, #slot2 li, #slot3 li {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        padding: 6px 4px 6px 6px;
-        line-height: normal;
         height: 30px;
         overflow: hidden;
     }
@@ -36,8 +20,8 @@
     .jSlots-wrapper1, .jSlots-wrapper2, .jSlots-wrapper3 {
         margin: 4px 0;
         overflow: hidden; /* to hide the magic */
-        height: 29px; /* whatever the height of your list items are */
-        width: 300px;
+        height: 30px; /* whatever the height of your list items are */
+        width: 100%;
         position: absolute;
         top: 0;
         display: none;
@@ -49,11 +33,11 @@
 
     .colorChange {
         -webkit-animation-name: multicolor; /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 10s;
+        -webkit-animation-duration: 360s;
         -webkit-animation-play-state: paused;
         -webkit-animation-fill-mode: forwards;
         animation-name: multicolor;
-        animation-duration: 10s;
+        animation-duration: 360s;
         animation-play-state: paused;
         animation-fill-mode: forwards;
     }

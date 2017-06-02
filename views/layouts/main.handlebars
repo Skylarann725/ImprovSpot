@@ -25,7 +25,7 @@
 
 <nav>
     <div class="nav-wrapper grey darken-4 z-depth-2">
-        <div>
+        <div id="hero_logo_wrapper">
             <a href="/" class="brand-logo center">
                 <img id="hero_logo" src="assets/img/hero_logo_white.png" alt="Hero Logo">
             </a>
@@ -71,7 +71,7 @@
 <!-- Login Modal -->
 <div id="loginmodal" class="modal bottom-sheet">
     <div class="modal-content">
-        <h4>Login to ImprovSpot or <a href="/loginspot">create a new account</a></h4>
+        <h5>Login to ImprovSpot or <a href="/loginspot">create a new account</a></h5>
         <form id="login" name="login" method="post" action="/login">
             <input placeholder="Username" class="text" name="username" type="text" />
             <input placeholder="Password" name="password" type="password" />
@@ -104,6 +104,7 @@
 <script src="assets/javascript/app.js"></script>
 
 <script>
+
 function myFunction() {
     // Declare variables
     var input, filter, ul, li, span, i;
@@ -141,6 +142,7 @@ function mySearch() {
         }
     }
 }
+
 </script>
 
 </body>

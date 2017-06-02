@@ -71,7 +71,8 @@ app.get("/", function(req, res) {
 });
 
 app.get("/gamespot", function(req, res) {
-    db.improv.findAll({}).then(function(data) {
+    db.improv.findAll({order: ('avg_rating DESC')
+}).then(function(data) {
         var hbsObject = {
             improvs: data
         };

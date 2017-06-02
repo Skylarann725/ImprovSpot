@@ -89,8 +89,8 @@ app.get("/findspot", function(req, res) {
         var hbsObject = {
             locations: data
         };
-    })
-    res.render("findspot", hbsObject);
+        res.render("findspot", hbsObject);
+    });
 });
 
 app.get("/userspot", function(req, res) {

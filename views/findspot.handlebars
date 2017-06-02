@@ -9,18 +9,34 @@
             <div class="nav-wrapper indigo lighten-3">
                 <form>
                     <div class="input-field">
-                        <input id="search" type="search" required>
+                        <input id="search" type="search" onkeyup="myFunction()" placeholder="Search by city..." required>
                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>
                 </form>
             </div>
         </nav>
-        <br>
-        <div class="row center-align indigo lighten-3">
-            <br><br>
-            [[MAP DIV]]
-            <br><br><br>
-        </div>
+        <ul class="collapsible grey-text text-darken-4" data-collapsible="accordion" id="myUL">
+            {{#each locations}}
+                <li>
+                    <div class="collapsible-header">
+                        <form action="/findspot/{{this.id}}?_method=PUT" method="POST">
+                            <i class="material-icons">room</i>
+                            <span>{{this.name}}</span>
+                            <span class="right">{{this.location}}</span>
+                        </form>
+                    </div>
+                    <div class="collapsible-body grey lighten-3">
+                        <form action="/findspot/{{this.game_id}}?_method=PUT" method="POST">
+                            <span class="chip green lighten-4">{{this.group_level}}</span>
+                            <span class="chip indigo lighten-4">{{this.improv_type}}</span>
+                            <span class="chip red lighten-4">Established {{this.date_established}}</span>
+                            <iframe width="100%" height="400" frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDDALgIwG1tQm9NIADhaES_ejFNIItvWbE&q={{this.nospacename}},{{this.urlcity}}"></iframe>
+                        </form>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
     </div>
 </main>

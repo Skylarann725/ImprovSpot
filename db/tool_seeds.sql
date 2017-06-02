@@ -1,4 +1,3 @@
-
 INSERT INTO iMachine(Relationship) VALUES ('$5 Bill and $100 Bill');
 INSERT INTO iMachine(Relationship) VALUES ('Actor and Director');
 INSERT INTO iMachine(Relationship) VALUES ('Actor and Double');

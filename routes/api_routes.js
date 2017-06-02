@@ -99,14 +99,18 @@ app.get("/userspot", function(req, res) {
 });
 
 app.get("/loginspot", function(req, res) {
-    res.redirect("/");
+    res.render("loginspot");
 });
 
-// app.post("/loginspot", passport.authenticate('local-signup', {
-//         successRedirect: "/",
+app.get("/signup", function(req, res) {
+    res.redirect("/");
+})
 
-//         failureRedirect: "/loginspot"
-//     }
+app.post("/loginspot", passport.authenticate('local-signup', {
+        successRedirect: "/",
 
-// ));
+        failureRedirect: "/loginspot"
+    }
+
+));
 };

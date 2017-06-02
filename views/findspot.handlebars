@@ -9,7 +9,7 @@
             <div class="nav-wrapper indigo lighten-3">
                 <form>
                     <div class="input-field">
-                        <input id="search" type="search" onkeyup="myFunction()" placeholder="Search by city..." required>
+                        <input id="search2" type="search" onkeyup="mySearch()" placeholder="Search by city..." required>
                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>
@@ -22,8 +22,8 @@
                     <div class="collapsible-header">
                         <form action="/findspot/{{this.id}}?_method=PUT" method="POST">
                             <i class="material-icons">room</i>
+                            <span id="places" class="right">{{this.location}}</span>
                             <span>{{this.name}}</span>
-                            <span class="right">{{this.location}}</span>
                         </form>
                     </div>
                     <div class="collapsible-body grey lighten-3">

@@ -28,6 +28,7 @@ h2 {
 
     #hero_logo {
         width: 100%;
+        vertical-align: middle;
     }
 
 }

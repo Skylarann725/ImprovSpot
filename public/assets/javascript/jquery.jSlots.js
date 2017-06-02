@@ -149,12 +149,7 @@ jQuery.extend( jQuery.easing,
 
             $li.clone().appendTo($list);
 
-if(base.options.spinner === '.jSlots-wrapper1')
-            base.$wrapper = $list.wrap('<div class="jSlots-wrapper1"></div>').show().parent();
-if(base.options.spinner === '.jSlots-wrapper2')
-            base.$wrapper = $list.wrap('<div class="jSlots-wrapper2"></div>').show().parent();
-if(base.options.spinner === '.jSlots-wrapper3')
-            base.$wrapper = $list.wrap('<div class="jSlots-wrapper3"></div>').show().parent();
+            base.$wrapper = $list.wrap('<div class="'+ base.options.spinner.substring(1) +'"></div>').show().parent();
 
 // remove original, so it can be recreated as a Slot
             base.$el.remove();
@@ -264,6 +259,7 @@ if(base.options.spinner === '.jSlots-wrapper3')
 
                 if ( $.isFunction( base.options.onEnd ) ) {
                     base.options.onEnd(finalNumbers);
+
                 }
 
                 if ( base.winCount && $.isFunction(base.options.onWin) ) {

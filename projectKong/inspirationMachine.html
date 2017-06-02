@@ -598,41 +598,40 @@
             //call recursive list builder that won't spin slots until it's finished
             makeSlotList(list, spinner);
         }
-
-        $.each(spinners, function (index) {
-            console.log('im being made ' + spinners[index].spinEvent);
-            $(spinners[index].slotSelect).jSlots({
-                number: spinners[index].num,
-                spinner: spinners[index].spinWrap,
-                spinEvent: spinners[index].spinEvent,
-                time: 300,
-                loops: 1,
-                endNum: 2,//spins backwards through the list. endNum 1 ends on the same value we started on
-                onEnd: function (finalElement) {
-                    console.log('im spinning ' + spinners[index].spinEvent);
-                    //set result
-                    spinners[index].input.val(spinners[index].selection[random_index].name.trim());
-                    //hide spinner
-                    $(this.spinner).hide();
-                }
-            });
+    });
+    $.each(spinners, function (index) {
+        console.log('im being made ' + spinners[index].spinEvent);
+        $(spinners[index].slotSelect).jSlots({
+            number: spinners[index].num,
+            spinner: spinners[index].spinWrap,
+            spinEvent: spinners[index].spinEvent,
+            time: 300,
+            loops: 1,
+            endNum: 2,//spins backwards through the list. endNum 1 ends on the same value we started on
+            onEnd: function (finalElement) {
+                console.log('im spinning ' + spinners[index].spinEvent);
+                //set result
+                spinners[index].input.val(spinners[index].selection[random_index].name.trim());
+                //hide spinner
+                $(this.spinner).hide();
+            }
         });
-        //bind random button
-        spinners[0].slotWrap.on('click', function () {
-            console.log('1');
-            if (spinners[0].input.val() === "") makeSlots(spinners[0]);
-            else spinners[0].input.val("");
-        });
-        spinners[1].slotWrap.on('click', function () {
-            console.log('2');
-            if (spinners[1].input.val() === "") makeSlots(spinners[1]);
-            else spinners[1].input.val("");
-        });
-        spinners[2].slotWrap.on('click', function () {
-            console.log('3');
-            if (spinners[2].input.val() === "") makeSlots(spinners[2]);
-            else spinners[2].input.val("");
-        });
+    });
+    //bind random button
+    spinners[0].slotWrap.on('click', function () {
+        console.log('1');
+        if (spinners[0].input.val() === "") makeSlots(spinners[0]);
+        else spinners[0].input.val("");
+    });
+    spinners[1].slotWrap.on('click', function () {
+        console.log('2');
+        if (spinners[1].input.val() === "") makeSlots(spinners[1]);
+        else spinners[1].input.val("");
+    });
+    spinners[2].slotWrap.on('click', function () {
+        console.log('3');
+        if (spinners[2].input.val() === "") makeSlots(spinners[2]);
+        else spinners[2].input.val("");
     });
 
 </script>

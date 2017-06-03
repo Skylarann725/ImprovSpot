@@ -34,10 +34,23 @@
                         <p>{{this.instructions}}</p>
                         </form>
                         <br>
-                        <a href="#">COMMENT AND REVIEW</a>
+                        <a href="#modal3">RATE AND REVIEW</a>
                         <a class="right" href="#" onclick="Materialize.toast('Savsies!', 1000)">SAVE TO FAVORITES</a>
                     </div>
                 </li>
             {{/each}}
         </ul>
 </main>
+
+<div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Rate and Review</h4>
+            <form>
+                <input placeholder="Star Rating" type="number">
+                <textarea placeholder="Comment" id="textarea1" class="materialize-textarea"></textarea>
+            </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Save</a>
+    </div>
+</div>
